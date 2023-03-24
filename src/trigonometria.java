@@ -12,9 +12,11 @@ public class trigonometria {
         while (control != "salir"){
             // limpiamos la pantalla y mostramos el menu
             funciones.limpiar();
-            System.out.println("1. Area de un triangulo");
-            System.out.println("2. Perimetro y Area de un circulo");
-            System.out.println("3. Menu anterior");
+            System.out.println("1. Area de un triangulo (b*h)");
+            System.out.println("2. Area de un triangulo (Segun sus lados)");
+            System.out.println("3. Perimetro y Area de un circulo");
+            System.out.println("4. Volumen de un cilindro");
+            System.out.println("5. Menu anterior");
             // pedimos al usuario que ingrese una opcion y la guardamos en la variable control
             control = teclado.nextLine();
             switch (control){
@@ -25,9 +27,17 @@ public class trigonometria {
                 break;
                 case "2":
                     funciones.limpiar();
-                    pa_circ();
+                    area_triangulo_lados();
                 break;
                 case "3":
+                    funciones.limpiar();
+                    pa_circ();
+                break;
+                case "4":
+                    funciones.limpiar();
+                    vol_cilindro();
+                break;
+                case "5":
                       control = "salir";      
                       System.out.println(control);
                 break;
@@ -38,7 +48,26 @@ public class trigonometria {
             }
         }  
     }
-    // funcion que calcula el area de un triangulo
+    private static void vol_cilindro() throws IOException, InterruptedException {
+        double radio = funciones.esdecimal("Ingrese el radio del cilindro: ");
+        double altura = funciones.esdecimal("Ingrese la altura del cilindro: ");
+        double volumen = Math.PI * Math.pow(radio, 2) * altura;
+        funciones.limpiar();
+        System.out.println("El volumen del cilindro es: " + volumen);
+        funciones.continuar();
+    }
+    // funcion que calcula el area de un triangulo segun sus lados
+    private static void area_triangulo_lados() throws IOException, InterruptedException {
+        double lado1 = funciones.esdecimal("Ingrese el primer lado del triángulo: ");
+        double lado2 = funciones.esdecimal("Ingrese el segundo lado del triángulo: ");
+        double lado3 = funciones.esdecimal("Ingrese el tercer lado del triángulo: ");
+        double semiperimetro = (lado1 + lado2 + lado3) / 2;
+        double area = Math.sqrt(semiperimetro * (semiperimetro - lado1) * (semiperimetro - lado2) * (semiperimetro - lado3));
+        funciones.limpiar();
+        System.out.println("El área del triángulo es: " + area);
+        funciones.continuar();
+    }
+    // funcion que calcula el area de un triangulo base por altura
     private static void area_triangulo() throws IOException, InterruptedException{
         // definimos las variables que usaremos para guardar los datos ingresados por el usuario
         double b, h, a;

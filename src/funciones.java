@@ -57,7 +57,7 @@ public class funciones {
             String validar;
             teclado.nextLine();
             System.out.println("El valor digitado no es un numero valido");
-            System.out.println("Escriba si salir");
+            System.out.println("Escriba si para salir");
             validar = teclado.nextLine();
             validar = validar.toLowerCase();
             // si el usuario confirma que desea salir se cambia el valor de cont a true para salir del ciclo
