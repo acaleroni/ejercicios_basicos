@@ -12,7 +12,8 @@ public class algebra {
             System.out.println("2. Determina la funcion  Y= 5X^4 + 2X^3 + 3X^2 + 7");
             System.out.println("3. Raiz Cuadrada de un numero");
             System.out.println("4. Convertir Kilogramos a Libras");
-            System.out.println("5. Menu anterior");
+            System.out.println("5. Convertir grados Fahrenheit a grados Celsius");
+            System.out.println("6. Menu anterior");
             control = teclado.nextLine();
             switch (control){
                 case "1":
@@ -32,6 +33,10 @@ public class algebra {
                 ckl();
                 break;
                 case "5":
+                funciones.limpiar();
+                cfc();
+                break;
+                case "6":
                       control = "salir";      
                       System.out.println(control);
                 break;
@@ -41,6 +46,14 @@ public class algebra {
                 break;
             }
         }  
+    }
+    private static void cfc() throws IOException, InterruptedException {
+        double f,c;
+        f = funciones.esdecimal("Ingrese la temperatura en grados Fahrenheit");
+        c = (f-32) * (5/9);
+        funciones.limpiar();
+        System.out.println(f + "grados fahrenheit, son:  " + c + "grados centigrados");
+        funciones.continuar();
     }
     public static void fy() throws IOException, InterruptedException
     {
