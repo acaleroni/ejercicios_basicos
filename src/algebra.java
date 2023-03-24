@@ -50,9 +50,9 @@ public class algebra {
     private static void cfc() throws IOException, InterruptedException {
         double f,c;
         f = funciones.esdecimal("Ingrese la temperatura en grados Fahrenheit");
-        c = (f-32) * (5/9);
+        c = (f-32)*5/9;
         funciones.limpiar();
-        System.out.println(f + "grados fahrenheit, son:  " + c + "grados centigrados");
+        System.out.println(f + " grados fahrenheit, son:  " + c + " grados centigrados");
         funciones.continuar();
     }
     public static void fy() throws IOException, InterruptedException
