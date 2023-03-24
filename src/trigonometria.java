@@ -2,17 +2,23 @@ import java.util.Scanner;
 import java.io.IOException;
 
 public class trigonometria {
+    // definimos una variable estatica de tipo Scanner para poder usarla en todas las funciones (capturar datos del usuario)
     static Scanner teclado = new Scanner(System.in);
+    //funcion que muestra el menu principal
     public static void menu() throws IOException, InterruptedException 
-    {
+    {   
+        // definimos una variable de tipo String para controlar el ciclo
         String control="x";
         while (control != "salir"){
+            // limpiamos la pantalla y mostramos el menu
             funciones.limpiar();
             System.out.println("1. Area de un triangulo");
             System.out.println("2. Perimetro y Area de un circulo");
             System.out.println("3. Menu anterior");
+            // pedimos al usuario que ingrese una opcion y la guardamos en la variable control
             control = teclado.nextLine();
             switch (control){
+                // se llama a una funcion dependiendo de la opcion que elija el usuario
                 case "1":
                     funciones.limpiar();
                     area_triangulo();
@@ -32,22 +38,32 @@ public class trigonometria {
             }
         }  
     }
+    // funcion que calcula el area de un triangulo
     private static void area_triangulo() throws IOException, InterruptedException{
+        // definimos las variables que usaremos para guardar los datos ingresados por el usuario
         double b, h, a;
+        // pedimos al usuario que ingrese los datos y los guardamos en las variables
         b = funciones.esdecimal("Ingrese la Base:");
         h = funciones.esdecimal("Ingrese la altura:");
+        // calculamos el area
         a = b*h;
+        // limpiamos la pantalla y mostramos los datos ingresados y el resultado
         funciones.limpiar();
         System.out.println("La base es: " + b);
         System.out.println("La altura es: " + h);
         System.out.println("El area es: " + a);
         funciones.continuar();    
     }
+    // funcion que calcula el perimetro y el area de un circulo
     private static void pa_circ() throws IOException, InterruptedException{
+        // definimos las variables que usaremos para guardar los datos ingresados por el usuario
         double r, p, a;
+        // pedimos al usuario que ingrese los datos y los guardamos en las variables
         r = funciones.esdecimal("Ingrese el radio:");
+        // calculamos el perimetro y el area
         p = 2 * Math.PI * r; 
         a = Math.PI*Math.pow(r, 2);
+        // limpiamos la pantalla y mostramos los datos ingresados y el resultado
         funciones.limpiar();
         System.out.println("El radio es: " + r);
         System.out.println("El perimetro de la circunferencia es : " + p);
