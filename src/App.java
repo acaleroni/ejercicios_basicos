@@ -11,7 +11,8 @@ public class App {
             funciones.limpiar();
             System.out.println("1. Trigonometria");
             System.out.println("2. Algebra");
-            System.out.println("3. Salir");
+            System.out.println("3. Fisica");
+            System.out.println("4. Salir");
             // guardamos la eleccion del usuario
             control = teclado.nextLine();
             switch (control){
@@ -25,6 +26,10 @@ public class App {
                    algebra.menu();
                 break;
                 case "3":
+                //llama la funcion menu de la clase algebra
+                   fisica.menu();
+                break;
+                case "4":
                 //limpiamos la pantalla
                     funciones.limpiar();
                     //llamamos la funcion salir de la clase funciones
