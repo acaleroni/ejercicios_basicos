@@ -2,7 +2,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class algebra {
-    static Scanner teclado = new Scanner(System.in);
+    private static Scanner teclado = new Scanner(System.in);
     public static void menu() throws IOException, InterruptedException 
     {
         String control="x";
@@ -15,7 +15,8 @@ public class algebra {
             System.out.println("3. Raiz Cuadrada de un numero");
             System.out.println("4. Convertir Kilogramos a Libras");
             System.out.println("5. Convertir grados Fahrenheit a grados Celsius");
-            System.out.println("6. Menu anterior");
+            System.out.println("6. Promediar Notas");
+            System.out.println("7. Menu anterior");
             // guardamos la eleccion del usuario
             control = teclado.nextLine();
             switch (control){
@@ -41,6 +42,10 @@ public class algebra {
                 cfc();
                 break;
                 case "6":
+                funciones.limpiar();
+                promedionotas();
+                break;
+                case "7":
                       control = "salir";      
                 break;
                 default:
@@ -52,6 +57,56 @@ public class algebra {
         }  
     }
     // aqui se encuentran las funciones que se llaman desde el menu
+    private static void promedionotas() throws IOException, InterruptedException {
+        double promedio, nota=0, nota1=0;
+        int n;
+        n  = funciones.esentero("Ingrese el numero de notas a promediar");
+        for(int i=0; i<n;i++)
+        {
+            if (i==0)
+            {
+                nota1 = funciones.esdecimal("Ingrese la primer nota");
+                if(nota1!=-0.0)
+                {
+                nota = nota + nota1;
+                }   
+                else
+                {
+                    break;
+                }
+            }
+            else if(i==n-1)
+            {
+                funciones.limpiar();
+                nota1 = funciones.esdecimal("Ingrese la ultima nota");
+                if(nota1!=-0.0)
+                {
+                nota = nota + nota1;
+                }   
+                else
+                {
+                    break;
+                }
+            }
+            else
+            {
+                funciones.limpiar();
+                nota1 = funciones.esdecimal("Ingrese la siguiente nota");
+                if(nota1!=-0.0)
+                {
+                nota = nota + nota1;
+                }   
+                else
+                {
+                    break;
+                }
+            }
+        }
+        funciones.limpiar();
+        promedio = nota / n;
+        System.out.println("El promedio es: " + promedio);
+        funciones.continuar();
+    }
     private static void cfc() throws IOException, InterruptedException {
         // definimos las variables
         double fahrenheit,celcius;

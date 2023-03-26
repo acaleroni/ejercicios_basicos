@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class funciones {
     // definimos una variable estatica de tipo Scanner para poder usarla en todas las funciones (capturar datos del usuario)
-    static Scanner teclado = new Scanner(System.in);
+    private static Scanner teclado = new Scanner(System.in);
     // definimos una funcion que limpiara la pantalla
     public static void limpiar()throws IOException, InterruptedException
     {
@@ -17,7 +17,6 @@ public class funciones {
     // definimos una funcion que mostrara un mensaje y pide una confirmacion al usuario
     public static String salir() throws IOException, InterruptedException
     {
-        teclado.nextLine();
         System.out.println("¿Seguro que desea salir? si/no");
         String retorno = "x";
                     String conf = teclado.nextLine();
@@ -70,6 +69,49 @@ public class funciones {
             }
           }
         }
+        //limpio el escaner para evitar conflictos
+        teclado.nextLine();  
+        return num;
+    }
+    public static int esentero (String mensaje) throws IOException, InterruptedException
+    {
+        // definimos una variable booleana para controlar el ciclo
+        boolean cont = false;
+        int num =-0;
+        // iniciamos el ciclo
+        while (cont == false)
+        {
+            // limpiamos la pantalla y mostramos el mensaje que se le pasa como parametro desde la funcion que la llama
+           limpiar();
+           System.out.println(mensaje);     
+           // si el valor ingresado es un numero valido se guarda en la variable num y se cambia el valor de cont a true para salir del ciclo
+           if (teclado.hasNextInt()) 
+           {
+             num = teclado.nextInt();
+             cont =true;
+           } 
+           // si el valor ingresado no es un numero valido se le pide al usuario que confirme si desea volver a intentarlo
+          else 
+          {
+            limpiar();
+            String validar;
+            teclado.nextLine();
+            System.out.println("El valor digitado no es un numero valido");
+            System.out.println("Escriba si para salir");
+            validar = teclado.nextLine();
+            validar = validar.toLowerCase();
+            // si el usuario confirma que desea salir se cambia el valor de cont a true para salir del ciclo
+            if(validar.equalsIgnoreCase("si"))
+            {
+                cont= true;  
+                System.out.println("Gracias por esta función");
+                continuar();    
+                num = -0;
+            }
+          }
+        }
+        //limpio el escaner para evitar conflictos
+        teclado.nextLine();  
         return num;
     }
 }

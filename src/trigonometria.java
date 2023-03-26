@@ -3,7 +3,7 @@ import java.io.IOException;
 
 public class trigonometria {
     // definimos una variable estatica de tipo Scanner para poder usarla en todas las funciones (capturar datos del usuario)
-    static Scanner teclado = new Scanner(System.in);
+   private static Scanner teclado = new Scanner(System.in);
     //funcion que muestra el menu principal
     public static void menu() throws IOException, InterruptedException 
     {   
@@ -18,7 +18,7 @@ public class trigonometria {
             System.out.println("4. Volumen de un cilindro");
             System.out.println("5. Menu anterior");
             // pedimos al usuario que ingrese una opcion y la guardamos en la variable control
-            control = teclado.nextLine();
+           control = teclado.nextLine();
             switch (control){
                 // se llama a una funcion dependiendo de la opcion que elija el usuario
                 case "1":
@@ -38,8 +38,7 @@ public class trigonometria {
                     vol_cilindro();
                 break;
                 case "5":
-                      control = "salir";      
-                      System.out.println(control);
+                    control = "salir";
                 break;
                 default:
                     funciones.limpiar();
