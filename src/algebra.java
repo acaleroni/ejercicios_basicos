@@ -72,6 +72,7 @@ public class algebra {
                 }   
                 else
                 {
+                    nota = -0.0;
                     break;
                 }
             }
@@ -85,6 +86,7 @@ public class algebra {
                 }   
                 else
                 {
+                    nota = -0.0;
                     break;
                 }
             }
@@ -98,14 +100,17 @@ public class algebra {
                 }   
                 else
                 {
+                    nota = -0.0;
                     break;
                 }
             }
         }
+        if(nota!=-0.0){
         funciones.limpiar();
         promedio = nota / n;
         System.out.println("El promedio es: " + promedio);
         funciones.continuar();
+        }
     }
     private static void cfc() throws IOException, InterruptedException {
         // definimos las variables

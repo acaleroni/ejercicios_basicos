@@ -62,6 +62,7 @@ public class funciones {
             // si el usuario confirma que desea salir se cambia el valor de cont a true para salir del ciclo
             if(validar.equalsIgnoreCase("si"))
             {
+                limpiar();
                 cont= true;  
                 System.out.println("Gracias por esta función");
                 continuar();    
@@ -103,6 +104,7 @@ public class funciones {
             // si el usuario confirma que desea salir se cambia el valor de cont a true para salir del ciclo
             if(validar.equalsIgnoreCase("si"))
             {
+              limpiar();
                 cont= true;  
                 System.out.println("Gracias por esta función");
                 continuar();    
