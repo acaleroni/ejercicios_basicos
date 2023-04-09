@@ -1,18 +1,14 @@
 import java.io.IOException;
-import java.util.Scanner;
 
 public class fisica {
-    static Scanner teclado = new Scanner(System.in);
+    // funcion que muestra el menu
     public static void menu() throws IOException, InterruptedException {
          // definimos una variable de tipo String para controlar el ciclo
+         String[] menu = {"1. Fuerza de un cuerpo","2. Menu anterior"};
          String control="x";
          while (control != "salir"){
-             // limpiamos la pantalla y mostramos el menu
-             funciones.limpiar();
-             System.out.println("1. Fuerza de un cuerpo");
-             System.out.println("2. Menu anterior");
              // pedimos al usuario que ingrese una opcion y la guardamos en la variable control
-             control = teclado.nextLine();
+             control = funciones.teclado(menu);
              switch (control){
                  // se llama a una funcion dependiendo de la opcion que elija el usuario
                  case "1":
@@ -30,6 +26,7 @@ public class fisica {
              }
          } 
     }
+   // funcion que calcula la fuerza de un cuerpo
     private static void Fuerza_cuerpo() throws IOException, InterruptedException {
         // se pide al usuario que ingrese la masa y la aceleracion del objeto
         double masa = funciones.esdecimal("Ingrese la masa del objeto: ");

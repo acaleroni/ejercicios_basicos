@@ -1,7 +1,7 @@
 import java.io.IOException;
 
 public class trigonometria {
-    //funcion que muestra el menu principal
+    //funcion que muestra el menu
     public static void menu() throws IOException, InterruptedException 
     {   
         // definimos una variable de tipo String para controlar el ciclo

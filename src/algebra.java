@@ -1,24 +1,14 @@
 import java.io.IOException;
-import java.util.Scanner;
 
 public class algebra {
-    private static Scanner teclado = new Scanner(System.in);
     public static void menu() throws IOException, InterruptedException 
     {
+        String[] menu = {"1. Determina la funcion Y= X*C-2","2. Determina la funcion  Y= 5X^4 + 2X^3 + 3X^2 + 7","3. Raiz Cuadrada de un numero","4. Convertir Kilogramos a Libras","5. Convertir grados Fahrenheit a grados Celsius","6. Promediar Notas","7. Menu anterior"};
         String control="x";
         //el menu se mostrara asta que el usuario escoja salir (el while repetira el menú asta que control sea salir)
         while (control != "salir"){
-            //limpiamos la pantalla y mostramos el menu
-            funciones.limpiar();
-            System.out.println("1. Determina la funcion Y= X*C-2");
-            System.out.println("2. Determina la funcion  Y= 5X^4 + 2X^3 + 3X^2 + 7");
-            System.out.println("3. Raiz Cuadrada de un numero");
-            System.out.println("4. Convertir Kilogramos a Libras");
-            System.out.println("5. Convertir grados Fahrenheit a grados Celsius");
-            System.out.println("6. Promediar Notas");
-            System.out.println("7. Menu anterior");
-            // guardamos la eleccion del usuario
-            control = teclado.nextLine();
+            // pedimos al usuario que ingrese una opcion y la guardamos en la variable control
+            control = funciones.teclado(menu);
             switch (control){
                 // ejecutamos una opcion segun la seleccion, en cada caso limpiamos la pantalla y llamamos a la funcion correspondiente
                 case "1":
@@ -57,6 +47,7 @@ public class algebra {
         }  
     }
     // aqui se encuentran las funciones que se llaman desde el menu
+   //funcion que calcula el promedio de notas
     private static void promedionotas() throws IOException, InterruptedException {
         double promedio, nota=0, nota1=0;
         int n;
@@ -112,6 +103,7 @@ public class algebra {
         funciones.continuar();
         }
     }
+   // funcion que convierte grados fahrenheit a grados centigrados
     private static void cfc() throws IOException, InterruptedException {
         // definimos las variables
         double fahrenheit,celcius;
@@ -125,6 +117,7 @@ public class algebra {
         // llamamos a la funcion continuar de la clase funciones para que el usuario pueda ver el resultado asta que presione enter
         funciones.continuar();
     }
+   // funcion que resuelve la funcion Y= X*C-2
     public static void fy() throws IOException, InterruptedException
     {
         // definimos una constante para c
@@ -141,6 +134,7 @@ public class algebra {
        System.out.println("El valor de Y cuando x=" +x+" es: "  + r);
        funciones.continuar();
     }
+   // funcion que resuelve la funcion Y= 5X^4 + 2X^3 + 3X^2 + 7
     public static void fy2() throws IOException, InterruptedException
     {
         //la funcion math.pow calcula la potencia de un numero, el resto del codigo es igual al de la funcion fy
@@ -153,6 +147,7 @@ public class algebra {
        System.out.println("El valor de Y cuando x=" +x+" es: "  + r);
        funciones.continuar();
     }
+    // esta funcion calcula la raiz cuadrada de un numero
     public static void raiz() throws IOException, InterruptedException
     {
         // la funcion math.sqrt calcula la raiz cuadrada de un numero y el resto del codigo ya fue explicado
@@ -165,14 +160,13 @@ public class algebra {
        funciones.continuar();
        }
     }
+   //kilos a libras este codigo es igual al de la funcion cfc solo que se cambia la formula de conversion
     public static void ckl() throws IOException, InterruptedException {
-       // este codigo es igual al de la funcion cfc solo que se cambia la formula de conversion
         double k,l;
         k = funciones.esdecimal("Ingrese el peso en kilogramos");
         l = k*2.2;
         funciones.limpiar();
         System.out.println(k + " kilogramos equivalen a: " + l + " libras");
         funciones.continuar();
-    }
-    
+    }  
 }

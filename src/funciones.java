@@ -32,7 +32,7 @@ public class funciones {
                     }
                     return retorno;
     }
-    // definimos una funcion que mostrara un mensaje y pedira un numero al usuario, si el usuario ingresa un valor no valido se le pedira que confirme si desea volver a intentarlo
+    // definimos una funcion que mostrara un mensaje y pedira un numero al usuario, si el usuario ingresa un valor no valido se le pedira que confirme si desea volver a intentarlo, si es valido devuelve un double
     public static double esdecimal (String mensaje) throws IOException, InterruptedException
     {
         // definimos una variable booleana para controlar el ciclo
@@ -75,6 +75,7 @@ public class funciones {
         teclado.nextLine();  
         return num;
     }
+    // definimos una funcion que mostrara un mensaje y pedira un numero al usuario, si el usuario ingresa un valor no valido se le pedira que confirme si desea volver a intentarlo, si es valido devuelve un entero
     public static int esentero (String mensaje) throws IOException, InterruptedException
     {
         // definimos una variable booleana para controlar el ciclo
@@ -117,6 +118,7 @@ public class funciones {
         teclado.nextLine();  
         return num;
     }
+    // definimos una funcion que mostrara un mensaje y espera que se teclee una opcióm, devuelve un String
     public static String teclado (String mensaje[]) throws IOException, InterruptedException
     {
       String retorno;
