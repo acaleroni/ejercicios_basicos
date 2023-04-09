@@ -38,6 +38,7 @@ public class trigonometria {
             }
         }  
     }
+    // funcion que calcula el volumen de un cilindro
     private static void vol_cilindro() throws IOException, InterruptedException {
         double radio = funciones.esdecimal("Ingrese el radio del cilindro: ");
         double altura = funciones.esdecimal("Ingrese la altura del cilindro: ");
