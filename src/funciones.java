@@ -116,4 +116,15 @@ public class funciones {
         teclado.nextLine();  
         return num;
     }
-}
+    public static String teclado (String mensaje[]) throws IOException, InterruptedException
+    {
+      teclado.nextLine();
+      String retorno;
+      limpiar();
+      for (int i = 0; i < mensaje.length; i++) {
+        System.out.println(mensaje[i]);     
+      }     
+      retorno = teclado.nextLine();  
+      return retorno;
+    }
+  } 
