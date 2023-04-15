@@ -30,7 +30,9 @@ public class fisica {
     private static void Fuerza_cuerpo() throws IOException, InterruptedException {
         // se pide al usuario que ingrese la masa y la aceleracion del objeto
         double masa = funciones.esdecimal("Ingrese la masa del objeto: ");
+        if(masa==-0.0){return;}
         double aceleracion = funciones.esdecimal("Ingrese la aceleracion del objeto: ");
+        if(aceleracion==-0.0){return;}
         // se calcula la fuerza del objeto
         double Fuerza = masa * aceleracion;
         // se muestra el resultado

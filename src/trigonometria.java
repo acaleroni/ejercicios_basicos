@@ -41,7 +41,9 @@ public class trigonometria {
     // funcion que calcula el volumen de un cilindro
     private static void vol_cilindro() throws IOException, InterruptedException {
         double radio = funciones.esdecimal("Ingrese el radio del cilindro: ");
+        if(radio==-0.0){return;}
         double altura = funciones.esdecimal("Ingrese la altura del cilindro: ");
+        if(altura==-0.0){return;}
         double volumen = Math.PI * Math.pow(radio, 2) * altura;
         funciones.limpiar();
         System.out.println("El volumen del cilindro es: " + volumen);
@@ -50,8 +52,11 @@ public class trigonometria {
     // funcion que calcula el area de un triangulo segun sus lados
     private static void area_triangulo_lados() throws IOException, InterruptedException {
         double lado1 = funciones.esdecimal("Ingrese el primer lado del triángulo: ");
+        if(lado1==-0.0){return;}
         double lado2 = funciones.esdecimal("Ingrese el segundo lado del triángulo: ");
+        if(lado2==-0.0){return;}
         double lado3 = funciones.esdecimal("Ingrese el tercer lado del triángulo: ");
+        if(lado3==-0.0){return;}
         double semiperimetro = (lado1 + lado2 + lado3) / 2;
         double area = Math.sqrt(semiperimetro * (semiperimetro - lado1) * (semiperimetro - lado2) * (semiperimetro - lado3));
         funciones.limpiar();
@@ -64,7 +69,9 @@ public class trigonometria {
         double b, h, a;
         // pedimos al usuario que ingrese los datos y los guardamos en las variables
         b = funciones.esdecimal("Ingrese la Base:");
+        if(b==-0.0){return;}
         h = funciones.esdecimal("Ingrese la altura:");
+        if(h==-0.0){return;}
         // calculamos el area
         a = b*h;
         // limpiamos la pantalla y mostramos los datos ingresados y el resultado
@@ -80,6 +87,7 @@ public class trigonometria {
         double r, p, a;
         // pedimos al usuario que ingrese los datos y los guardamos en las variables
         r = funciones.esdecimal("Ingrese el radio:");
+        if(r==-0.0){return;}
         // calculamos el perimetro y el area
         p = 2 * Math.PI * r; 
         a = Math.PI*Math.pow(r, 2);

@@ -52,6 +52,7 @@ public class algebra {
         double promedio, nota=0, nota1=0;
         int n;
         n  = funciones.esentero("Ingrese el numero de notas a promediar");
+        if(n==0){return;}
         for(int i=0; i<n;i++)
         {
             if (i==0)
@@ -109,6 +110,7 @@ public class algebra {
         double fahrenheit,celcius;
         // pedimos los datos al usuario con la funcion esdecimal de la clase funciones que verifica que el dato ingresado sea un numero valido y luego lo guarda en la variable correspondiente
         fahrenheit = funciones.esdecimal("Ingrese la temperatura en grados Fahrenheit");
+        if(fahrenheit==-0.0){return;}
         // realizamos la conversion
         celcius = (fahrenheit-32)*5/9;
         // limpiamos la pantalla y mostramos el resultado
@@ -126,6 +128,7 @@ public class algebra {
        double r, x;
        // pedimos los datos al usuario con la funcion esdecimal de la clase funciones que verifica que el dato ingresado sea un numero valido y luego lo guarda en la variable correspondiente
        x = funciones.esdecimal("Digite el valor de x");
+       if(x==-0.0){return;}
        // calculamos y cuando x vale 1 y cuando x vale el valor ingresado por el usuario
        r=1*c-2;
        funciones.limpiar();
@@ -140,6 +143,7 @@ public class algebra {
         //la funcion math.pow calcula la potencia de un numero, el resto del codigo es igual al de la funcion fy
        double r, x;
        x = funciones.esdecimal("Digite el valor de x");
+       if(x==-0.0){return;}
        r= 5 + 2 + 3 + 7;
        funciones.limpiar();
        System.out.println("El valor de Y cuando x=1 es: " + r);
@@ -153,17 +157,17 @@ public class algebra {
         // la funcion math.sqrt calcula la raiz cuadrada de un numero y el resto del codigo ya fue explicado
        double r, n;
        n = funciones.esdecimal("Digite el numero del que desea la raiz cuadrada");
-       if(n!=-0.0){
+       if(n==-0.0){return;}
        r=Math.sqrt(n);
        funciones.limpiar();
        System.out.println("La raiz cuadrada de: " + n + " es: " + r);
        funciones.continuar();
-       }
     }
    //kilos a libras este codigo es igual al de la funcion cfc solo que se cambia la formula de conversion
     public static void ckl() throws IOException, InterruptedException {
         double k,l;
         k = funciones.esdecimal("Ingrese el peso en kilogramos");
+        if(k==-0.0){return;}
         l = k*2.2;
         funciones.limpiar();
         System.out.println(k + " kilogramos equivalen a: " + l + " libras");
