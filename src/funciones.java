@@ -68,6 +68,7 @@ public class funciones {
                 System.out.println("Gracias por esta función");
                 continuar();    
                 num = -0.0;
+                return num;
             }
           }
         }
@@ -111,6 +112,7 @@ public class funciones {
                 System.out.println("Gracias por esta función");
                 continuar();    
                 num = -0;
+                return num;
             }
           }
         }
