@@ -47,22 +47,22 @@ public class convertidor {
         yardas = funciones.esdecimal("Ingrese la longitud en yardas");
         if(yardas==-0.0){return;}
         funciones.limpiar();
-        System.out.println(yardas + " yardas son: "+ yardas*3 + "pies, " + yardas*36 + "pulgadas, " + yardas*91.44 + "centimetros");
+        System.out.println(yardas + " yardas son: "+ yardas*3 + " pies, " + yardas*36 + " pulgadas, " + yardas*91.44 + " centimetros");
         }else if(selec==2){
         pies = funciones.esdecimal("Ingrese la longitud en pies");
         if(pies==-0.0){return;}
         funciones.limpiar();
-        System.out.println(pies + " pies son: " + pies*0.333333 + "yardas, " + pies*12 + "pulgadas, " + pies*30.48 + "centimetros");
+        System.out.println(pies + " pies son: " + pies*0.333333 + " yardas, " + pies*12 + " pulgadas, " + pies*30.48 + " centimetros");
         }else if(selec==3){
         pulgadas = funciones.esdecimal("Ingrese la longitud en pulgadas");
         if(pulgadas==-0.0){return;}
         funciones.limpiar();
-        System.out.println(pulgadas + " pulgadas son: " + pulgadas*0.0277778 + "yardas, " + pulgadas*0.0833333 + "pies, " + pulgadas*2.54 + "centimetros");
+        System.out.println(pulgadas + " pulgadas son: " + pulgadas*0.0277778 + " yardas, " + pulgadas*0.0833333 + " pies, " + pulgadas*2.54 + " centimetros");
         }else if(selec==4){
         centimetros = funciones.esdecimal("Ingrese la longitud en centimetros");
         if(centimetros==-0.0){return;}
         funciones.limpiar();
-        System.out.println(centimetros + " centimetros son: " + centimetros*0.0109361 + "yardas, " + centimetros*0.0328084 + "pies, " + centimetros*0.393701 + "pulgadas");
+        System.out.println(centimetros + " centimetros son: " + centimetros*0.0109361 + " yardas, " + centimetros*0.0328084 + " pies, " + centimetros*0.393701 + " pulgadas");
         }else{
         funciones.limpiar();
         System.out.println("La obción " + ctl + " no es valida");

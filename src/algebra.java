@@ -3,7 +3,7 @@ import java.io.IOException;
 public class algebra {
     public static void menu() throws IOException, InterruptedException 
     {
-        String[] menu = {"1. Determina la funcion Y= X*C-2","2. Determina la funcion  Y= 5X^4 + 2X^3 + 3X^2 + 7","3. Raiz Cuadrada de un numero","4. Promediar Notas","5. Menu anterior"};
+        String[] menu = {"1. Determina la funcion Y= X*C-2","2. Determina la funcion  Y= 5X^4 + 2X^3 + 3X^2 + 7","3. Raiz Cuadrada de un numero","4. Promediar Notas","5. Cosenos de un numero","6. Menu anterior"};
         String control="x";
         //el menu se mostrara asta que el usuario escoja salir (el while repetira el menú asta que control sea salir)
         while (control != "salir"){
@@ -28,6 +28,10 @@ public class algebra {
                 promedionotas();
                 break;
                 case "5":
+                funciones.limpiar();
+                coseno();
+                break;
+                case "6":
                       control = "salir";      
                 break;
                 default:
@@ -37,6 +41,15 @@ public class algebra {
                 break;
             }
         }  
+    }
+    private static void coseno() throws IOException, InterruptedException {
+        double numero, coseno;
+        numero = funciones.esdecimal("Ingrese el numero para calcular el coseno");
+        if(numero==-0.0){return;}
+        coseno = Math.cos(numero);
+        funciones.limpiar();
+        System.out.println("El coseno de " + numero + " es: " + coseno);
+        funciones.continuar();
     }
     // aqui se encuentran las funciones que se llaman desde el menu
    //funcion que calcula el promedio de notas
