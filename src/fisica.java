@@ -16,8 +16,7 @@ public class fisica {
                      Fuerza_cuerpo();
                  break;
                  case "2":
-                       control = "salir";      
-                       System.out.println(control);
+                       control = "salir";
                  break;
                  default:
                      funciones.limpiar();

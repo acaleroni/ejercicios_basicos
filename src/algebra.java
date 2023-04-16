@@ -3,7 +3,7 @@ import java.io.IOException;
 public class algebra {
     public static void menu() throws IOException, InterruptedException 
     {
-        String[] menu = {"1. Determina la funcion Y= X*C-2","2. Determina la funcion  Y= 5X^4 + 2X^3 + 3X^2 + 7","3. Raiz Cuadrada de un numero","4. Convertir Kilogramos a Libras","5. Convertir grados Fahrenheit a grados Celsius","6. Promediar Notas","7. Menu anterior"};
+        String[] menu = {"1. Determina la funcion Y= X*C-2","2. Determina la funcion  Y= 5X^4 + 2X^3 + 3X^2 + 7","3. Raiz Cuadrada de un numero","4. Promediar Notas","5. Menu anterior"};
         String control="x";
         //el menu se mostrara asta que el usuario escoja salir (el while repetira el menú asta que control sea salir)
         while (control != "salir"){
@@ -25,17 +25,9 @@ public class algebra {
                 break;
                 case "4":
                 funciones.limpiar();
-                ckl();
-                break;
-                case "5":
-                funciones.limpiar();
-                cfc();
-                break;
-                case "6":
-                funciones.limpiar();
                 promedionotas();
                 break;
-                case "7":
+                case "5":
                       control = "salir";      
                 break;
                 default:
@@ -49,77 +41,49 @@ public class algebra {
     // aqui se encuentran las funciones que se llaman desde el menu
    //funcion que calcula el promedio de notas
     private static void promedionotas() throws IOException, InterruptedException {
-        double promedio, nota=0, nota1=0;
         int n;
         n  = funciones.esentero("Ingrese el numero de notas a promediar");
+        if(n==0){return;}
+        double promedio, nota=0,notas[] = new double[n];
         if(n==0){return;}
         for(int i=0; i<n;i++)
         {
             if (i==0)
             {
-                nota1 = funciones.esdecimal("Ingrese la primer nota");
-                if(nota1!=-0.0)
-                {
-                nota = nota + nota1;
-                }   
-                else
-                {
-                    nota = -0.0;
-                    break;
-                }
+                notas[i] = funciones.esdecimal("Ingrese la primer nota");
             }
             else if(i==n-1)
             {
                 funciones.limpiar();
-                nota1 = funciones.esdecimal("Ingrese la ultima nota");
-                if(nota1!=-0.0)
-                {
-                nota = nota + nota1;
-                }   
-                else
-                {
-                    nota = -0.0;
-                    break;
-                }
+                notas[i] = funciones.esdecimal("Ingrese la ultima nota");
             }
             else
             {
                 funciones.limpiar();
-                nota1 = funciones.esdecimal("Ingrese la siguiente nota");
-                if(nota1!=-0.0)
-                {
-                nota = nota + nota1;
-                }   
-                else
-                {
-                    nota = -0.0;
-                    break;
-                }
+                notas[i] = funciones.esdecimal("Ingrese la siguiente nota");
+                
             }
+            if(notas[i]==-0.0){return;}
+            nota = nota + notas[i];
         }
-        if(nota!=-0.0){
         funciones.limpiar();
         promedio = nota / n;
-        System.out.println("El promedio es: " + promedio);
-        funciones.continuar();
+        System.out.print("El promedio de las notas: ");
+        for(int i=0; i<n;i++)
+        {
+            if(i==n-1)
+            {
+                System.out.print(notas[i]);
+            }
+            else
+            {
+                System.out.print(notas[i] + ", ");
+            }
         }
-    }
-   // funcion que convierte grados fahrenheit a grados centigrados
-    private static void cfc() throws IOException, InterruptedException {
-        // definimos las variables
-        double fahrenheit,celcius;
-        // pedimos los datos al usuario con la funcion esdecimal de la clase funciones que verifica que el dato ingresado sea un numero valido y luego lo guarda en la variable correspondiente
-        fahrenheit = funciones.esdecimal("Ingrese la temperatura en grados Fahrenheit");
-        if(fahrenheit==-0.0){return;}
-        // realizamos la conversion
-        celcius = (fahrenheit-32)*5/9;
-        // limpiamos la pantalla y mostramos el resultado
-        funciones.limpiar();
-        System.out.println(fahrenheit + " grados fahrenheit, son:  " + celcius + " grados centigrados");
-        // llamamos a la funcion continuar de la clase funciones para que el usuario pueda ver el resultado asta que presione enter
+        System.out.println(" es: " + promedio);
         funciones.continuar();
     }
-   // funcion que resuelve la funcion Y= X*C-2
+    // funcion que resuelve la funcion Y= X*C-2
     public static void fy() throws IOException, InterruptedException
     {
         // definimos una constante para c
@@ -163,14 +127,4 @@ public class algebra {
        System.out.println("La raiz cuadrada de: " + n + " es: " + r);
        funciones.continuar();
     }
-   //kilos a libras este codigo es igual al de la funcion cfc solo que se cambia la formula de conversion
-    public static void ckl() throws IOException, InterruptedException {
-        double k,l;
-        k = funciones.esdecimal("Ingrese el peso en kilogramos");
-        if(k==-0.0){return;}
-        l = k*2.2;
-        funciones.limpiar();
-        System.out.println(k + " kilogramos equivalen a: " + l + " libras");
-        funciones.continuar();
-    }  
-}
+  }

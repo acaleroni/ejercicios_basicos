@@ -15,23 +15,6 @@ public class funciones {
         System.out.println("Presione enter para continuar...");
         teclado.nextLine();
     }
-    // definimos una funcion que mostrara un mensaje y pide una confirmacion al usuario
-    public static String salir() throws IOException, InterruptedException
-    {
-        System.out.println("¿Seguro que desea salir? si/no");
-        String retorno = "x";
-                    String conf = teclado.nextLine();
-                    // convertimos la cadena a minusculas para evitar errores
-                    conf = conf.toLowerCase();
-                    // si el usuario confirma la salida se cambia el valor de retorno a salir
-                    if(conf.equalsIgnoreCase("si")){
-                        retorno = "salir";      
-                        // limpiamos la pantalla y mostramos un mensaje de despedida
-                        limpiar();
-                        System.out.println("Gracias por usar nuestro sistema");
-                    }
-                    return retorno;
-    }
     // definimos una funcion que mostrara un mensaje y pedira un numero al usuario, si el usuario ingresa un valor no valido se le pedira que confirme si desea volver a intentarlo, si es valido devuelve un double
     public static double esdecimal (String mensaje) throws IOException, InterruptedException
     {

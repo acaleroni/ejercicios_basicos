@@ -2,7 +2,7 @@
 public class App {
     public static void main(String[] args) throws Exception {
        //definimos las variables para el uso del menu
-       String[] menu = {"1. Trigonometria","2. Algebra","3. Fisica","4. Salir"};
+       String[] menu = {"1. Trigonometria","2. Algebra","3. Fisica","4. Convertidores","5. Salir"};
        String control="x";
         //el menu se mostrara asta que el usuario escoja salir (el while repetira el menú asta que control sea salir)
         while (control != "salir"){
@@ -23,9 +23,20 @@ public class App {
                    fisica.menu();
                 break;
                 case "4":
+                //llama la funcion menu de la clase algebra
+                   convertidor.menu();
+                break;
+                case "5":
                     //limpiamos la pantalla
                    funciones.limpiar();
-                   control = funciones.salir();
+                   String mensaje[] = {"¿Seguro que desea salir? si/no"};
+                   control = funciones.teclado(mensaje);
+                   control = control.toLowerCase();  
+                   if(control.equals("si")){
+                          control = "salir";
+                          funciones.limpiar();
+                          System.out.println("Gracias por usar nuestro sistema");
+                     }
                 break;
                 default:
                 //limpiamos la pantalla
