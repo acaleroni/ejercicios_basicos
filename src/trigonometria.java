@@ -6,14 +6,14 @@ public class trigonometria {
     {   
         // definimos una variable de tipo String para controlar el ciclo
         String control="x";
-        String[] menu = {"1. Area de un triangulo (b*h)","2. Area de un triangulo (Segun sus lados)","3. Perimetro y Area de un circulo","4. Volumen de un cilindro","5. Menu anterior"};
+        String[] menu = {"1. Area de un rectangulo (b*h)","2. Area de un triangulo (Segun sus lados)","3. Perimetro y Area de un circulo","4. Volumen de un cilindro","5. Menu anterior"};
         while (control != "salir"){
            control = funciones.teclado(menu);
             switch (control){
                 // se llama a una funcion dependiendo de la opcion que elija el usuario
                 case "1":
                     funciones.limpiar();
-                    area_triangulo();
+                    area_rectangulo();
                 break;
                 case "2":
                     funciones.limpiar();
@@ -39,7 +39,7 @@ public class trigonometria {
         }  
     }
     // funcion que calcula el volumen de un cilindro
-    private static void vol_cilindro() throws IOException, InterruptedException {
+    public static void vol_cilindro() throws IOException, InterruptedException {
         double radio = funciones.esdecimal("Ingrese el radio del cilindro: ");
         if(radio==-0.0){return;}
         double altura = funciones.esdecimal("Ingrese la altura del cilindro: ");
@@ -50,7 +50,7 @@ public class trigonometria {
         funciones.continuar();
     }
     // funcion que calcula el area de un triangulo segun sus lados
-    private static void area_triangulo_lados() throws IOException, InterruptedException {
+    public static void area_triangulo_lados() throws IOException, InterruptedException {
         double lado1 = funciones.esdecimal("Ingrese el primer lado del triángulo: ");
         if(lado1==-0.0){return;}
         double lado2 = funciones.esdecimal("Ingrese el segundo lado del triángulo: ");
@@ -64,7 +64,7 @@ public class trigonometria {
         funciones.continuar();
     }
     // funcion que calcula el area de un triangulo base por altura
-    private static void area_triangulo() throws IOException, InterruptedException{
+    public static void area_rectangulo() throws IOException, InterruptedException{
         // definimos las variables que usaremos para guardar los datos ingresados por el usuario
         double b, h, a;
         // pedimos al usuario que ingrese los datos y los guardamos en las variables
@@ -82,7 +82,7 @@ public class trigonometria {
         funciones.continuar();    
     }
     // funcion que calcula el perimetro y el area de un circulo
-    private static void pa_circ() throws IOException, InterruptedException{
+    public static void pa_circ() throws IOException, InterruptedException{
         // definimos las variables que usaremos para guardar los datos ingresados por el usuario
         double r, p, a;
         // pedimos al usuario que ingrese los datos y los guardamos en las variables

@@ -3,7 +3,7 @@ import java.io.IOException;
 public class algebra {
     public static void menu() throws IOException, InterruptedException 
     {
-        String[] menu = {"1. Determina la funcion Y= X*C-2","2. Determina la funcion  Y= 5X^4 + 2X^3 + 3X^2 + 7","3. Raiz Cuadrada de un numero","4. Promediar Notas","5. Cosenos de un numero","6. Menu anterior"};
+        String[] menu = {"1. Determina la funcion Y= X*C-2","2. Determina la funcion  Y= 5X^4 + 2X^3 + 3X^2 + 7","3. Raiz Cuadrada de un numero","4. Promediar Notas","5. Cosenos de un numero","6. Solucion de la forma ax + b = 0","7. Determinar el valor del determinante de segundo orden","8. Solucion de sistema de ecuasiones (Cramer)", "9. Invertir numero de 3 digitos","10. Es votante"," 11. Par o impar", "12. Menu anterior"};
         String control="x";
         //el menu se mostrara asta que el usuario escoja salir (el while repetira el menú asta que control sea salir)
         while (control != "salir"){
@@ -32,6 +32,30 @@ public class algebra {
                 coseno();
                 break;
                 case "6":
+                funciones.limpiar();
+                axb();
+                break;
+                case "7":
+                funciones.limpiar();
+                determinante();
+                break;
+                case "8":
+                funciones.limpiar();
+                cramer();
+                break;
+                case "9":
+                funciones.limpiar();
+                invertir();
+                break;
+                case "10":
+                funciones.limpiar();
+                mayor();
+                break;
+                case "11":
+                funciones.limpiar();
+                parimpar();
+                break;
+                case "12":
                       control = "salir";      
                 break;
                 default:
@@ -42,7 +66,99 @@ public class algebra {
             }
         }  
     }
-    private static void coseno() throws IOException, InterruptedException {
+    //funcion que determina si un numero es par o impar
+    public static void parimpar() throws IOException, InterruptedException {
+        int numero;
+        numero = funciones.esentero("Ingrese el numero a determinar");
+        if(numero==-0){return;}
+        if(numero%2==0){
+            System.out.println("El numero es par");
+        }else{
+            System.out.println("El numero es impar");
+        }
+        funciones.continuar();
+    }
+    //funcion que determina si es mayor de edad
+    public static void mayor() throws IOException, InterruptedException {
+        int edad;
+        edad = funciones.esentero("Ingrese su edad");
+        if(edad==-0){return;}
+        if(edad>=16){
+            System.out.println("Es votante");
+        }else{
+            System.out.println("Es menor de edad");
+        }
+        funciones.continuar();
+    }
+    //funcion que soluciona un sistema de ecuaciones de 2x2
+    public static void cramer() throws IOException, InterruptedException {
+        double a,b,c,d,e,f,x,y,determinante,determinanteX,determinanteY;
+        a = funciones.esdecimal("Ingrese el valor de a");
+        if(a==-0.0){return;}
+        b = funciones.esdecimal("Ingrese el valor de b");
+        if(b==-0.0){return;}
+        c = funciones.esdecimal("Ingrese el valor de c");
+        if(c==-0.0){return;}
+        d = funciones.esdecimal("Ingrese el valor de d");
+        if(d==-0.0){return;}
+        e = funciones.esdecimal("Ingrese el valor de e");
+        if(e==-0.0){return;}
+        f = funciones.esdecimal("Ingrese el valor de f");
+        if(f==-0.0){return;}
+        determinante = (a*d)-(b*c);
+        determinanteX = (e*d)-(b*f);
+        determinanteY = (a*f)-(e*c);
+        if(determinante==0){
+            System.out.println("El sistema no tiene solucion");
+            funciones.continuar();
+            return;
+        }
+        x = determinanteX/determinante;
+        y = determinanteY/determinante;
+        System.out.println("El valor de x es: " + x);
+        System.out.println("El valor de y es: " + y);
+        funciones.continuar();
+    }
+    //invierte un numero de 3 digitos
+    public static void invertir() throws IOException, InterruptedException {
+        int numero, invertido;
+        numero = funciones.esentero("Ingrese el numero de 3 digitos a invertir");
+        if(numero==-0){return;}
+        if(numero<100 || numero>999){
+            System.out.println("El numero debe ser de 3 digitos");
+            funciones.continuar();
+            return;
+        }
+        invertido = (numero%10)*100 + ((numero/10)%10)*10 + (numero/100);
+        System.out.println("El numero invertido es: " + invertido);
+        funciones.continuar();
+    }
+    //funcion que da la determinante de una matriz de 2x2
+    public static void determinante() throws IOException, InterruptedException {
+        double a,b,c,d,determinante;
+        a = funciones.esdecimal("Ingrese el valor de a");
+        if(a==-0.0){return;}
+        b = funciones.esdecimal("Ingrese el valor de b");
+        if(b==-0.0){return;}
+        c = funciones.esdecimal("Ingrese el valor de c");
+        if(c==-0.0){return;}
+        d = funciones.esdecimal("Ingrese el valor de d");
+        if(d==-0.0){return;}
+        determinante = (a*d)-(b*c);
+        System.out.println("El determinante de la matriz es: " + determinante);
+        funciones.continuar();
+    }
+    //funcion que resuelve la ecuacion ax + b = 0
+    public static void axb() throws IOException, InterruptedException {
+        double a = funciones.esdecimal("Ingrese el valor de a");
+        if(a==-0.0 || a==0){return;}
+        double b = funciones.esdecimal("Ingrese el valor de b");
+        if(b==-0.0){return;}
+        double x = -b / a;
+        System.out.println("La solución lineal de ax + b = 0 es: " + x);
+    }
+    //funcion que calcula el coseno de un numero
+    public static void coseno() throws IOException, InterruptedException {
         double numero, coseno;
         numero = funciones.esdecimal("Ingrese el numero para calcular el coseno");
         if(numero==-0.0){return;}
@@ -51,9 +167,8 @@ public class algebra {
         System.out.println("El coseno de " + numero + " es: " + coseno);
         funciones.continuar();
     }
-    // aqui se encuentran las funciones que se llaman desde el menu
    //funcion que calcula el promedio de notas
-    private static void promedionotas() throws IOException, InterruptedException {
+    public static void promedionotas() throws IOException, InterruptedException {
         int n;
         n  = funciones.esentero("Ingrese el numero de notas a promediar");
         if(n==0){return;}

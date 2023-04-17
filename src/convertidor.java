@@ -37,7 +37,7 @@ public class convertidor {
         }
     }
     //funcion que convierte longitud de yardas, pies, pulgadas y centimetros
-    private static void cl() throws IOException, InterruptedException {
+    public static void cl() throws IOException, InterruptedException {
     String[] medida = {"1. Convertir desde Yardas","2. Convertir desde Pies","3. Convertir desde Pulgadas ","4. Convertir desde Centimetros","5. Salir"};
     String ctl = funciones.teclado(medida);
     int selec = Integer.parseInt(ctl);
@@ -71,7 +71,7 @@ public class convertidor {
     funciones.continuar();
     }
     // funcion que convierte grados temeperatura de fahrenheit a celcius y viceversa
-    private static void ct() throws IOException, InterruptedException {
+    public static void ct() throws IOException, InterruptedException {
         // definimos las variables
         double fahrenheit,celcius;
         // pedimos los datos al usuario con la funcion esdecimal de la clase funciones que verifica que el dato ingresado sea un numero valido y luego lo guarda en la variable correspondiente
