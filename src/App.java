@@ -152,14 +152,14 @@ public class App {
           }
           break;
           case "3":
-              String menu3[] = {"1. Determinar si un numero es primo","2. Determinar si un numero es perfecto","3. Determinar si un numero es capicua","4. Determinar si un numero es par o impar","5. Determinar si un numero es multiplo de otro","6. Determinar si un numero es primo o compuesto","7. Determinar si un numero es positivo o negativo", "8. Determinar si un numero es mayor o menor que otro","9. Determinar si un numero es multiplo de 5",  "10. Determinar si un numero es multiplo de 10", "11. Menu anterior"};
+              String menu3[] = {"1. Potencia de X","2. Determinar si un numero es perfecto","3. Determinar si un numero es capicua","4. Determinar si un numero es par o impar","5. Determinar si un numero es multiplo de otro","6. Determinar si un numero es primo o compuesto","7. Determinar si un numero es positivo o negativo", "8. Determinar si un numero es mayor o menor que otro","9. Determinar si un numero es multiplo de 5",  "10. Determinar si un numero es multiplo de 10", "11. Menu anterior"};
           String control3 = "x";
           while (control3 != "salir"){
             control3 = funciones.teclado(menu3);
             switch (control3){
               case "1":
               funciones.limpiar();
-
+              algebra.potenciax();
               break;
               case "2":
               funciones.limpiar();

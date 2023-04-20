@@ -3,7 +3,7 @@ import java.io.IOException;
 public class algebra {
     public static void menu() throws IOException, InterruptedException 
     {
-        String[] menu = {"1. Determina la funcion Y= X*C-2","2. Determina la funcion  Y= 5X^4 + 2X^3 + 3X^2 + 7","3. Raiz Cuadrada de un numero","4. Promediar Notas","5. Cosenos de un numero","6. Solucion de la forma ax + b = 0","7. Determinar el valor del determinante de segundo orden","8. Solucion de sistema de ecuasiones (Cramer)", "9. Invertir numero de 3 digitos","10. Es votante"," 11. Par o impar", "12. Menu anterior"};
+        String[] menu = {"1. Determina la funcion Y= X*C-2","2. Determina la funcion  Y= 5X^4 + 2X^3 + 3X^2 + 7","3. Raiz Cuadrada de un numero","4. Promediar Notas","5. Cosenos de un numero","6. Solucion de la forma ax + b = 0","7. Determinar el valor del determinante de segundo orden","8. Solucion de sistema de ecuasiones (Cramer)", "9. Invertir numero de 3 digitos","10. Es votante"," 11. Par o impar", "12. Potencia de X", "13. Menu anterior"};
         String control="x";
         //el menu se mostrara asta que el usuario escoja salir (el while repetira el menú asta que control sea salir)
         while (control != "salir"){
@@ -56,6 +56,10 @@ public class algebra {
                 parimpar();
                 break;
                 case "12":
+                funciones.limpiar();
+                potenciax();
+                break;
+                case "13":
                       control = "salir";      
                 break;
                 default:
@@ -65,6 +69,19 @@ public class algebra {
                 break;
             }
         }  
+    }
+    //calcula la potencia de un numero en base a si es negativo o positivo
+    public static void potenciax() throws IOException, InterruptedException {
+        double x;
+        x = funciones.esdecimal("Ingrese el valor de x");
+        if(x==-0.0){return;}
+        else if(x<0){
+            System.out.println("El valor de " + x + " elevado a la cuarta potencia es: " + Math.pow(x, 4));
+    }
+    else {
+        System.out.println("El valor de " + x +" elevado al cuadrado es: " + Math.pow(x, 2));
+    }
+    funciones.continuar();
     }
     //funcion que determina si un numero es par o impar
     public static void parimpar() throws IOException, InterruptedException {
