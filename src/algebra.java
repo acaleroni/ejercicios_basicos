@@ -3,7 +3,7 @@ import java.io.IOException;
 public class algebra {
     public static void menu() throws IOException, InterruptedException 
     {
-        String[] menu = {"1. Determina la funcion Y= X*C-2","2. Determina la funcion  Y= 5X^4 + 2X^3 + 3X^2 + 7","3. Raiz Cuadrada de un numero","4. Promediar Notas","5. Cosenos de un numero","6. Solucion de la forma ax + b = 0","7. Determinar el valor del determinante de segundo orden","8. Solucion de sistema de ecuasiones (Cramer)", "9. Invertir numero de 3 digitos","10. Es votante"," 11. Par o impar", "12. Potencia de X", "13. Menu anterior"};
+        String[] menu = {"1. Determina la funcion Y= X*C-2","2. Determina la funcion  Y= 5X^4 + 2X^3 + 3X^2 + 7","3. Raiz Cuadrada de un numero","4. Promediar Notas","5. Cosenos de un numero","6. Solucion de la forma ax + b = 0","7. Determinar el valor del determinante de segundo orden","8. Solucion de sistema de ecuasiones (Cramer)", "9. Invertir numero de 3 digitos","10. Es votante"," 11. Par o impar", "12. Potencia de X", "13. Interes de capital","14. Menu anterior"};
         String control="x";
         //el menu se mostrara asta que el usuario escoja salir (el while repetira el menú asta que control sea salir)
         while (control != "salir"){
@@ -60,6 +60,10 @@ public class algebra {
                 potenciax();
                 break;
                 case "13":
+                funciones.limpiar();
+                interes();
+                break;
+                case "14":
                       control = "salir";      
                 break;
                 default:
@@ -271,5 +275,34 @@ public class algebra {
        funciones.limpiar();
        System.out.println("La raiz cuadrada de: " + n + " es: " + r);
        funciones.continuar();
+    }
+    public static void interes() throws IOException, InterruptedException {
+        double capital, interes, total, cuota;
+        int tiempo;
+        capital = funciones.esdecimal("Ingrese el capital");
+        if(capital==-0.0){return;}
+        if(capital>10000){interes =0.07;}
+        else{interes = 0.06;}
+        tiempo = funciones.esentero("Ingrese el tiempo en meses");
+        if(tiempo==-0.0){return;}
+        cuota = capital / tiempo;
+        total = capital;
+        funciones.limpiar();
+        tiempo = 1;
+        cuota = Math.round(cuota*100);
+        cuota = cuota/100;
+        System.out.println(cuota);
+        while (total>0)
+        {   
+            if(cuota>total)
+            {
+                cuota = total;
+            }
+            System.out.println(tiempo + " Saldo inicial: " + total + " Interes: " + (total * interes) + " Amortizacion: " + cuota  + " Cuota: " + (cuota + (total * interes)) + " Saldo final: " + (total - cuota));
+            total = Math.round((total - cuota)*100);
+            total = total/100;
+            tiempo++;
+        }
+        funciones.continuar();
     }
   }
