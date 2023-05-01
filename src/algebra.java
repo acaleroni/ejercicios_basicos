@@ -276,6 +276,7 @@ public class algebra {
        System.out.println("La raiz cuadrada de: " + n + " es: " + r);
        funciones.continuar();
     }
+   // calcula el interes sobre un capital
     public static void interes() throws IOException, InterruptedException {
         double capital, interes, total, cuota;
         int tiempo;
@@ -302,6 +303,55 @@ public class algebra {
             total = Math.round((total - cuota)*100);
             total = total/100;
             tiempo++;
+        }
+        funciones.continuar();
+    }
+    // pide la nota y calcula si esta aprobado o no
+    public static void aprobado() throws IOException, InterruptedException {
+        double nota;
+        nota = funciones.esdecimal("Ingrese la nota");
+        if(nota==-0.0){return;}
+        funciones.limpiar();
+        if(nota>=60)
+        {
+            System.out.println("Aprobado");
+        }
+        else
+        {
+            System.out.println("Reprobado");
+        }
+        funciones.continuar();
+    }
+    // pide el valor de a y segun el valor calcula  y= 2 elveado a la a o  y = a + 5
+    public static void positivo() throws IOException, InterruptedException {
+        double a, y;
+        a = funciones.esdecimal("Ingrese el valor de a");
+        if(a==-0.0){return;}
+        if(a>0)
+        {
+            y = Math.pow(2, a);
+        }
+        else
+        {
+            y = a + 5;
+        }
+        funciones.limpiar();
+        System.out.println("El valor de y es: " + y);
+        funciones.continuar();
+    }
+   // verifica si un numero es divisible de 3
+    public static void divisible3() throws IOException, InterruptedException {
+        int n;
+        n = funciones.esentero("Ingrese el numero");
+        if(n==-0.0){return;}
+        funciones.limpiar();
+        if(n%3==0)
+        {
+            System.out.println("El numero es divisible de 3");
+        }
+        else
+        {
+            System.out.println("El numero no es divisible de 3");
         }
         funciones.continuar();
     }
