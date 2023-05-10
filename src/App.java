@@ -5,7 +5,7 @@ public class App {
       String seleccion="x";
       while(seleccion != "salir"){
         funciones.limpiar();
-        String[] menu = {"1. Segun Lista","2. Por categoria","3. Salir"};
+        String[] menu = {"1. Segun Lista","2. Por categoria","3. Tabla","4. Salir"};
         seleccion = funciones.teclado(menu);
         switch(seleccion){
           case "1":
@@ -15,6 +15,9 @@ public class App {
             categorias();
           break;
           case "3":
+            String datos[][] = funciones.llenar();
+            funciones.tabla("Factura de giro comercial",datos);
+          case "4":
           funciones.limpiar();
           String mensaje[] = {"¿Seguro que desea salir? si/no"};
           seleccion = funciones.teclado(mensaje);
@@ -277,4 +280,4 @@ public class App {
             }
         }
     }
-}
+  }

@@ -106,12 +106,89 @@ public class funciones {
     // definimos una funcion que mostrara un mensaje y espera que se teclee una opcióm, devuelve un String
     public static String teclado (String mensaje[]) throws IOException, InterruptedException
     {
-      String retorno;
       limpiar();
       for (int i = 0; i < mensaje.length; i++) {
         System.out.println(mensaje[i]);     
       }     
-      retorno = teclado.nextLine();
-      return retorno;
+      return teclado.nextLine();
+    }
+    // funcion que dibuja una interfaz de tablas
+    public static void tabla (String encabezado, String datos[][]) throws IOException, InterruptedException
+    {
+      limpiar();
+      int sizet = 0;
+      int[] sizec = new int[datos[0].length];
+      //definimos el tamaño de las columnas 
+      for(int i=0; i<datos.length;i++ ){
+          for(int j=0; j<datos[0].length;j++ )
+          {     
+           if(datos[i][j].length()>sizec[j])
+            {
+              sizec[j] = datos[i][j].length();
+            }
+          }  
+        }
+        for(int i=0;i<sizec.length;i++)
+        {
+          sizet = sizet + sizec[i]+2;
+        }
+      // imprimimos el encabezado
+ 
+      int  siz1 = ((sizet+encabezado.length())/2);
+      if(datos[0].length%2==0)
+      siz1 = (sizet-siz1+1);
+      else
+      siz1 = (sizet-siz1);
+      System.out.printf(String.format("\u001B[1m\u001B[4m%%%ds \n",sizet+3),"_");
+      System.out.printf(String.format("\u001B[1m\u001B[4m|%%%ds ", (sizet+encabezado.length())/2)+String.format("\u001B[1m\u001B[4m %%%ds|", siz1), encabezado, "");
+      //imprimimos el contenido
+       for (int i=0;i<datos.length;i++)
+      {
+          System.out.println("");
+          for(int j=0; j<datos[0].length;j++ )
+          {
+            int siz = -sizec[j];
+            if(j>0)
+            System.out.printf(String.format("\u001B[0m\u001B[4m %%%ds |\u001B[0m", siz), datos[i][j]);
+            else
+            System.out.printf(String.format("\u001B[0m\u001B[4m| %%%ds |\u001B[0m", siz), datos[i][j]);
+          }  
+      }  
+      System.out.println("");
+      continuar();
+    }
+    static String[][] llenar() throws IOException, InterruptedException{
+      limpiar();
+      String[][] tabla = new String[4][4];
+      tabla[0][0] = "Nombre del Articulo";
+      tabla[0][1] = "Precio";
+      tabla[0][2] = "Cantidad";
+      tabla[0][3] = "Total";
+      tabla[1][0] = "Arroz";
+      tabla[1][1] = "18";
+      tabla[1][2] = "2";
+      tabla[1][3] = "36";
+      tabla[2][0] = "Frijoles en salsa de tomate";
+      tabla[2][1] = "20";
+      tabla[2][2] = "1";
+      tabla[2][3] = "20";
+      tabla[3][0] = "pan";
+      tabla[3][1] = "5";
+      tabla[3][2] = "10";
+      tabla[3][3] = "50";
+     /*  for (int i=1;i<4;i++)
+      {
+          System.out.println("");
+          for(int j=0; j<3;j++ )
+          {
+              System.out.print("Ingrese " + tabla[0][j] +": ");
+              tabla[i][j] = teclado.nextLine();
+              if(j==2){
+                  int total = Integer.parseInt(tabla[i][1])*Integer.parseInt(tabla[i][2]);
+                  tabla[i][3] =  String.valueOf(total);
+              }
+          }  
+      }*/
+      return tabla;
     }
   } 
